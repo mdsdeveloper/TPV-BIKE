@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--/**
+ * 
+ * @author Two hands Technology
+ *
+ */-->
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    
+    <!-- parametros para la conexion a la base de datos local en producción -->
+   		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+ 	    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dbmcbike</property>
+        <property name="hibernate.connection.username">Mcbike_user</property>
+        <property name="hibernate.connection.password">Mcbike_pass#314</property> 
+    
+    
+    <!-- parametros para la conexion a la base de datos local -->
+    
+   	<!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+ 	    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dbmcbike</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>-->
+    
+    <!-- parametros para la conexion a la base de datos remota --> 
+    
+   	<!--<property name="hibernate.connection.url">jdbc:mysql://adriangosalvez.com:3306/dbmcbike</property>
+        <property name="hibernate.connection.username">Mcbike_user</property>
+        <property name="hibernate.connection.password">Mcbike_pass#314</property>-->
+        
+    <!-- parametros para la conexion a la base de datos remota versión 0.5 -->
+    
+ 	<!--<property name="hibernate.connection.url">jdbc:mysql://adriangosalvez.com:3306/dbmcbikev05</property>
+        <property name="hibernate.connection.username">Mcbike_userv05</property>
+        <property name="hibernate.connection.password">Mcbike_pass#314</property>-->
+        
+    <!-- parametros para la conexion a la base de datos remota versión 0.8 --> 
+    
+    <!--<property name="hibernate.connection.url">jdbc:mysql://adriangosalvez.com:3306/dbmcbikev08</property>
+        <property name="hibernate.connection.username">Mcbike_userv08</property>
+        <property name="hibernate.connection.password">Mcbike_pass#314</property>-->
+        
+        <!-- parametros para la conexion a la base de datos remota versión 1.0 --> 
+    
+    <!--<property name="hibernate.connection.url">jdbc:mysql://adriangosalvez.com:3306/mcbikev10</property>
+        <property name="hibernate.connection.username">Mcbike_userv10</property>
+        <property name="hibernate.connection.password">Mcbike_pass#314</property>-->
+        
+        <property name="hibernate.connection.pool_size">2</property>
+        
+     <!-- Dialecto de la base de datos -->
+     	<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+     <!-- Otras propiedades importantes -->        
+        <property name="hibernate.show_sql">true</property><!-- esta linea muestra en consola las consultas sql que genera hibernate -->
+    	<!--  update  create-drop -->
+    	<!-- esta linea cada vez que se ejecute la aplicación con create-drop
+    		hibernate elimina las tablas de la base de datos y las vuelve a crear,
+    		si se ejecuta con update se actualiza sin eliminar ni crear -->
+    	<property name="hbm2ddl.auto">update</property>
+  	 
+  	 <!-- Configuramos la cache de hibernate -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+
+  	
+  
+   		<mapping class="modelo.Categoria"/>
+   		<mapping class="modelo.Producto"/>
+   		<mapping class="modelo.Empleado"/>
+   		<mapping class="modelo.Venta"/>   	
+   		<mapping class="modelo.LineaVenta"/>
+   		<mapping class="modelo.LineaVentaRealizada"/>
+   		<mapping class="modelo.ListaProducto"/>
+   		<mapping class="modelo.Caja"/>
+   		<mapping class="modelo.Factura"/>
+   		<mapping class="modelo.Cliente"/>
+   		<mapping class="modelo.FacturaHecha"/>
+   		<mapping class="modelo.Configuracion"/>
+   		<mapping class="modelo.ProductoCambiado"/>
+   		<mapping class="modelo.ProductosVarios"/>
+    </session-factory>
+</hibernate-configuration>
